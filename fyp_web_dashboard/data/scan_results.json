@@ -1,0 +1,1049 @@
+[
+  {
+    "id": "20260518025849295529",
+    "timestamp": "2026-05-18 02:58:49",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 4,
+      "fail": 1,
+      "info": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 4,
+      "risk_score": 12,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Status: active\n\nTo                         Action      From\n--                         ------      ----\n22/tcp                     ALLOW       Anywhere                  \n22/tcp (v6)                ALLOW       Anywhere (v6)",
+        "remediation": "Firewall is enabled. Review rules regularly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "/etc/ssh/sshd_config:PermitRootLogin no",
+        "remediation": "Root SSH login is disabled."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication no",
+        "remediation": "Password authentication is disabled."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "5 upgradable package(s).\nlinux-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-headers-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-image-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-libc-dev/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-tools-common/noble-updates 6.8.0-117.117 all [upgradable from: 6.8.0-111.111]",
+        "remediation": "Apply pending updates promptly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "active",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260518025555627974",
+    "timestamp": "2026-05-18 02:55:55",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 1,
+      "fail": 4,
+      "info": 0,
+      "high": 2,
+      "medium": 2,
+      "low": 1,
+      "risk_score": 64,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Status: inactive",
+        "remediation": "Enable UFW and allow required services only."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "/etc/ssh/sshd_config:PermitRootLogin yes",
+        "remediation": "Set PermitRootLogin no and restart SSH service."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication yes",
+        "remediation": "Disable password authentication if SSH key login is available."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "5 upgradable package(s).\nlinux-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-headers-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-image-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-libc-dev/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-tools-common/noble-updates 6.8.0-117.117 all [upgradable from: 6.8.0-111.111]",
+        "remediation": "Apply pending updates promptly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "inactive",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260518025348216575",
+    "timestamp": "2026-05-18 02:53:48",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 1,
+      "fail": 4,
+      "info": 0,
+      "high": 2,
+      "medium": 2,
+      "low": 1,
+      "risk_score": 64,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Status: inactive",
+        "remediation": "Enable UFW and allow required services only."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "/etc/ssh/sshd_config:PermitRootLogin yes",
+        "remediation": "Set PermitRootLogin no and restart SSH service."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication yes",
+        "remediation": "Disable password authentication if SSH key login is available."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "5 upgradable package(s).\nlinux-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-headers-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-image-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-libc-dev/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-tools-common/noble-updates 6.8.0-117.117 all [upgradable from: 6.8.0-111.111]",
+        "remediation": "Apply pending updates promptly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "inactive",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260518025149135149",
+    "timestamp": "2026-05-18 02:51:49",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 1,
+      "fail": 3,
+      "info": 1,
+      "high": 1,
+      "medium": 3,
+      "low": 1,
+      "risk_score": 51,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Status: inactive",
+        "remediation": "Enable UFW and allow required services only."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "INFO",
+        "risk": "MEDIUM",
+        "details": "PermitRootLogin not explicitly set.",
+        "remediation": "Explicitly set PermitRootLogin no."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication yes",
+        "remediation": "Disable password authentication if SSH key login is available."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "5 upgradable package(s).\nlinux-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-headers-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-image-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-libc-dev/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]\nlinux-tools-common/noble-updates 6.8.0-117.117 all [upgradable from: 6.8.0-111.111]",
+        "remediation": "Apply pending updates promptly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "inactive",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260518024909122061",
+    "timestamp": "2026-05-18 02:49:09",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 2,
+      "fail": 2,
+      "info": 1,
+      "high": 1,
+      "medium": 2,
+      "low": 2,
+      "risk_score": 39,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Status: inactive",
+        "remediation": "Enable UFW and allow required services only."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "INFO",
+        "risk": "MEDIUM",
+        "details": "PermitRootLogin not explicitly set.",
+        "remediation": "Explicitly set PermitRootLogin no."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "FAIL",
+        "risk": "MEDIUM",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication yes",
+        "remediation": "Disable password authentication if SSH key login is available."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "No pending updates found.",
+        "remediation": "System appears up to date."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "active",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260518023854377163",
+    "timestamp": "2026-05-18 02:38:54",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 2,
+      "fail": 4,
+      "info": 0,
+      "high": 4,
+      "medium": 0,
+      "low": 2,
+      "risk_score": 67,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518023752352934",
+    "timestamp": "2026-05-18 02:37:52",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 3,
+      "fail": 3,
+      "info": 0,
+      "high": 3,
+      "medium": 0,
+      "low": 3,
+      "risk_score": 50,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Default Administrator account is disabled.",
+        "remediation": "Administrator account is disabled."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518023418179802",
+    "timestamp": "2026-05-18 02:34:18",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 6,
+      "fail": 0,
+      "info": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 6,
+      "risk_score": 0,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Firewall is enabled.",
+        "remediation": "Review firewall rules regularly."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "RDP is disabled.",
+        "remediation": "RDP is disabled."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              8\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Password policy appears configured."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Default Administrator account is disabled.",
+        "remediation": "Administrator account is disabled."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518023318065574",
+    "timestamp": "2026-05-18 02:33:18",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 4,
+      "fail": 2,
+      "info": 0,
+      "high": 2,
+      "medium": 0,
+      "low": 4,
+      "risk_score": 33,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Firewall is enabled.",
+        "remediation": "Review firewall rules regularly."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "RDP is disabled.",
+        "remediation": "RDP is disabled."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518022437483840",
+    "timestamp": "2026-05-18 02:24:37",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 2,
+      "fail": 4,
+      "info": 0,
+      "high": 4,
+      "medium": 0,
+      "low": 2,
+      "risk_score": 67,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518021735513927",
+    "timestamp": "2026-05-18 02:17:35",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 2,
+      "fail": 4,
+      "info": 0,
+      "high": 4,
+      "medium": 0,
+      "low": 2,
+      "risk_score": 67,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518020251723593",
+    "timestamp": "2026-05-18 02:02:51",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 2,
+      "fail": 4,
+      "info": 0,
+      "high": 4,
+      "medium": 0,
+      "low": 2,
+      "risk_score": 67,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260518020123397132",
+    "timestamp": "2026-05-18 02:01:23",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 4,
+      "fail": 0,
+      "info": 1,
+      "high": 0,
+      "medium": 1,
+      "low": 4,
+      "risk_score": 7,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Status: active\n\nTo                         Action      From\n--                         ------      ----\n22/tcp                     ALLOW       Anywhere                  \n22/tcp (v6)                ALLOW       Anywhere (v6)",
+        "remediation": "Firewall is enabled. Review rules regularly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "INFO",
+        "risk": "MEDIUM",
+        "details": "PermitRootLogin not explicitly set.",
+        "remediation": "Explicitly set PermitRootLogin no."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication no",
+        "remediation": "Password authentication is disabled."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "No pending updates found.",
+        "remediation": "System appears up to date."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "active",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  },
+  {
+    "id": "20260511014324766019",
+    "timestamp": "2026-05-11 01:43:24",
+    "source": "Manual",
+    "target_ip": "192.168.126.132",
+    "os_type": "windows",
+    "summary": {
+      "total": 6,
+      "pass": 2,
+      "fail": 4,
+      "info": 0,
+      "high": 4,
+      "medium": 0,
+      "low": 2,
+      "risk_score": 67,
+      "risk_level": "Medium"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Firewall",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Firewall may be disabled.",
+        "remediation": "Enable Windows Firewall for all profiles."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "RDP Status",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "RDP is enabled.",
+        "remediation": "Disable RDP if it is not required."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Password Policy",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Force user logoff how long after time expires?:       Never\r\nMinimum password age (days):                          0\r\nMaximum password age (days):                          Unlimited\r\nMinimum password length:                              0\r\nLength of password history maintained:                None\r\nLockout threshold:                                    10\r\nLockout duration (minutes):                           10\r\nLockout observation window (minutes):                 10\r\nComputer role:                                        SERVER\r\nThe command completed successfully.",
+        "remediation": "Set minimum password length and stronger password policy."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Windows Defender",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Defender is enabled.",
+        "remediation": "Keep Microsoft Defender enabled and updated."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Administrator Account",
+        "status": "FAIL",
+        "risk": "HIGH",
+        "details": "Default Administrator account is enabled.",
+        "remediation": "Disable or rename the default Administrator account."
+      },
+      {
+        "target_ip": "192.168.126.132",
+        "os": "Windows",
+        "check": "Guest Account",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Guest account is disabled.",
+        "remediation": "Guest account is disabled."
+      }
+    ]
+  },
+  {
+    "id": "20260511013824537739",
+    "timestamp": "2026-05-11 01:38:24",
+    "source": "Manual",
+    "target_ip": "192.168.126.131",
+    "os_type": "linux",
+    "summary": {
+      "total": 5,
+      "pass": 4,
+      "fail": 0,
+      "info": 1,
+      "high": 0,
+      "medium": 1,
+      "low": 4,
+      "risk_score": 7,
+      "risk_level": "Low"
+    },
+    "results": [
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Firewall Status",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "Status: active\n\nTo                         Action      From\n--                         ------      ----\n22/tcp                     ALLOW       Anywhere                  \n22/tcp (v6)                ALLOW       Anywhere (v6)",
+        "remediation": "Firewall is enabled. Review rules regularly."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Root Login",
+        "status": "INFO",
+        "risk": "MEDIUM",
+        "details": "PermitRootLogin not explicitly set.",
+        "remediation": "Explicitly set PermitRootLogin no."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "SSH Password Authentication",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "/etc/ssh/sshd_config:PasswordAuthentication no",
+        "remediation": "Password authentication is disabled."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Pending Updates",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "No pending updates found.",
+        "remediation": "System appears up to date."
+      },
+      {
+        "target_ip": "192.168.126.131",
+        "os": "Linux",
+        "check": "Fail2Ban Presence",
+        "status": "PASS",
+        "risk": "LOW",
+        "details": "active",
+        "remediation": "Fail2Ban is running."
+      }
+    ]
+  }
+]

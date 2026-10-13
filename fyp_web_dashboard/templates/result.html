@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Scan Result</h1>
+<p>{{ record.target_ip }} · {{ record.os_type }} · {{ record.timestamp }} · {{ record.source }}</p>
+<p><a class="button-link" href="{{ url_for('export_pdf', record_id=record.id) }}">Export PDF Report</a></p>
+
+<section class="cards">
+  <div class="card"><h3>Total Checks</h3><p class="big">{{ record.summary.total }}</p></div>
+  <div class="card score-card risk-{{ record.summary.risk_level|lower }}"><h3>Risk Score</h3><p class="big">{{ record.summary.risk_score }}/100</p><p>{{ record.summary.risk_level }} Risk</p></div>
+  <div class="card"><h3>PASS</h3><p class="big">{{ record.summary.pass }}</p></div>
+  <div class="card"><h3>FAIL</h3><p class="big">{{ record.summary.fail }}</p></div>
+</section>
+
+<section class="cards">
+  <div class="card high"><h3>HIGH</h3><p class="big">{{ record.summary.high }}</p></div>
+  <div class="card medium"><h3>MEDIUM</h3><p class="big">{{ record.summary.medium }}</p></div>
+  <div class="card low"><h3>LOW</h3><p class="big">{{ record.summary.low }}</p></div>
+  <div class="card"><h3>INFO</h3><p class="big">{{ record.summary.info }}</p></div>
+</section>
+
+<section class="panel">
+<table>
+  <tr>
+    <th>Check</th><th>Status</th><th>Risk</th><th>Details</th><th>Remediation</th>
+  </tr>
+  {% for r in record.results %}
+  <tr class="row-{{ r.status|lower }}">
+    <td>{{ r.check }}</td>
+    <td><strong>{{ r.status }}</strong></td>
+    <td>{{ r.risk }}</td>
+    <td><pre>{{ r.details }}</pre></td>
+    <td>{{ r.remediation }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</section>
+{% endblock %}

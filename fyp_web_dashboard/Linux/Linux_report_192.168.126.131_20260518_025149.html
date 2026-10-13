@@ -1,0 +1,90 @@
+
+    <html>
+    <head>
+        <title>Linux Security Scan Report</title>
+        <style>
+            body { font-family: Arial; background:#f4f4f4; margin:30px; }
+            h1 { text-align:center; }
+            table { border-collapse: collapse; width:100%; background:white; }
+            th, td { border:1px solid #ccc; padding:10px; text-align:left; vertical-align:top; }
+            th { background:#333; color:white; }
+            pre { white-space:pre-wrap; margin:0; }
+            .PASS { background:#c8e6c9; }
+            .FAIL { background:#ffcdd2; }
+            .INFO { background:#fff9c4; }
+        </style>
+    </head>
+    <body>
+        <h1>Linux Security Scan Report</h1>
+        <h3>Target IP: 192.168.126.131</h3>
+
+        <table>
+            <tr>
+                <th>Target IP</th>
+                <th>OS</th>
+                <th>Check</th>
+                <th>Status</th>
+                <th>Risk</th>
+                <th>Details</th>
+                <th>Remediation</th>
+            </tr>
+            
+        <tr class="FAIL">
+            <td>192.168.126.131</td>
+            <td>Linux</td>
+            <td>Firewall Status</td>
+            <td>FAIL</td>
+            <td>HIGH</td>
+            <td><pre>Status: inactive</pre></td>
+            <td>Enable UFW and allow required services only.</td>
+        </tr>
+        
+        <tr class="INFO">
+            <td>192.168.126.131</td>
+            <td>Linux</td>
+            <td>SSH Root Login</td>
+            <td>INFO</td>
+            <td>MEDIUM</td>
+            <td><pre>PermitRootLogin not explicitly set.</pre></td>
+            <td>Explicitly set PermitRootLogin no.</td>
+        </tr>
+        
+        <tr class="FAIL">
+            <td>192.168.126.131</td>
+            <td>Linux</td>
+            <td>SSH Password Authentication</td>
+            <td>FAIL</td>
+            <td>MEDIUM</td>
+            <td><pre>/etc/ssh/sshd_config:PasswordAuthentication yes</pre></td>
+            <td>Disable password authentication if SSH key login is available.</td>
+        </tr>
+        
+        <tr class="FAIL">
+            <td>192.168.126.131</td>
+            <td>Linux</td>
+            <td>Pending Updates</td>
+            <td>FAIL</td>
+            <td>MEDIUM</td>
+            <td><pre>5 upgradable package(s).
+linux-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]
+linux-headers-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]
+linux-image-generic/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]
+linux-libc-dev/noble-updates 6.8.0-117.117 amd64 [upgradable from: 6.8.0-111.111]
+linux-tools-common/noble-updates 6.8.0-117.117 all [upgradable from: 6.8.0-111.111]</pre></td>
+            <td>Apply pending updates promptly.</td>
+        </tr>
+        
+        <tr class="PASS">
+            <td>192.168.126.131</td>
+            <td>Linux</td>
+            <td>Fail2Ban Presence</td>
+            <td>PASS</td>
+            <td>LOW</td>
+            <td><pre>inactive</pre></td>
+            <td>Fail2Ban is running.</td>
+        </tr>
+        
+        </table>
+    </body>
+    </html>
+    

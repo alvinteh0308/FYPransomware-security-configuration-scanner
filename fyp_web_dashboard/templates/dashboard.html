@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Security Scan Dashboard</h1>
+
+<section class="cards">
+  <div class="card">
+    <h3>Latest Scan</h3>
+    {% if latest %}
+      <p class="big">{{ latest.summary.fail }} failed checks</p>
+      <p>{{ latest.target_ip }} · {{ latest.os_type }} · {{ latest.timestamp }}</p>
+    {% else %}
+      <p>No scan result yet.</p>
+    {% endif %}
+  </div>
+  <div class="card score-card risk-{{ latest.summary.risk_level|lower if latest else 'low' }}">
+    <h3>Risk Score</h3>
+    <p class="big">{{ latest.summary.risk_score if latest else 0 }}/100</p>
+    <p>{{ latest.summary.risk_level if latest else 'Low' }} Risk</p>
+  </div>
+  <div class="card high"><h3>High Risk Checks</h3><p class="big">{{ latest.summary.high if latest else 0 }}</p></div>
+  <div class="card medium"><h3>Medium Risk Checks</h3><p class="big">{{ latest.summary.medium if latest else 0 }}</p></div>
+</section>
+
+<section class="grid-three">
+  <div class="panel">
+    <h2>Status Distribution</h2>
+    {% for label, value in status_chart.items() %}
+      <div class="bar-row">
+        <span>{{ label }}</span>
+        <div class="bar-track"><div class="bar-fill status-{{ label|lower }}" style="width: {{ (value / (latest.summary.total if latest and latest.summary.total else 1) * 100)|round }}%"></div></div>
+        <strong>{{ value }}</strong>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="panel">
+    <h2>Risk Distribution</h2>
+    {% for label, value in risk_chart.items() %}
+      <div class="bar-row">
+        <span>{{ label }}</span>
+        <div class="bar-track"><div class="bar-fill riskbar-{{ label|lower }}" style="width: {{ (value / (latest.summary.total if latest and latest.summary.total else 1) * 100)|round }}%"></div></div>
+        <strong>{{ value }}</strong>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="panel">
+    <h2>Windows vs Linux Results</h2>
+    {% for os_name, item in os_metrics.items() %}
+      <div class="bar-row">
+        <span>{{ os_name }}</span>
+        <div class="bar-track"><div class="bar-fill os-bar" style="width: {{ item.avg_score }}%"></div></div>
+        <strong>{{ item.avg_score }}/100</strong>
+      </div>
+      <p class="muted">{{ item.count }} scan record(s)</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="grid-two">
+  <div class="panel">
+    <h2>Run New Scan</h2>
+    <form action="{{ url_for('scan') }}" method="post">
+      <label>Operating System</label>
+      <select name="os_type">
+        <option value="linux">Linux</option>
+        <option value="windows">Windows</option>
+      </select>
+
+      <label>Target IP Address</label>
+      <input name="ip" placeholder="192.168.56.10" required>
+
+      <label>Username</label>
+      <input name="username" placeholder="admin" required>
+
+      <label>Password</label>
+      <input name="password" type="password" required>
+
+      <label class="check"><input type="checkbox" name="save_target"> Save target for scheduled scanning</label>
+      <button type="submit">Start Scan</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2>Scheduled Scanning</h2>
+    <p>Status: <strong>{{ scheduler.status }}</strong></p>
+    <p>Last Run: {{ scheduler.last_run or "Not yet" }}</p>
+    <p>Next Run: {{ scheduler.next_run or "Not scheduled" }}</p>
+
+    <form action="{{ url_for('scheduler') }}" method="post" class="inline-form">
+      <label>Interval Minutes</label>
+      <input name="interval_minutes" type="number" value="{{ scheduler.interval_minutes }}" min="1">
+      <button name="action" value="start">Start</button>
+      <button name="action" value="stop" class="secondary">Stop</button>
+    </form>
+
+    <h3>Saved Targets</h3>
+    {% if targets %}
+      <table>
+        <tr><th>IP</th><th>OS</th><th>Action</th></tr>
+        {% for t in targets %}
+        <tr>
+          <td>{{ t.ip }}</td>
+          <td>{{ t.os_type }}</td>
+          <td>
+            <form action="{{ url_for('delete_target', ip=t.ip, os_type=t.os_type) }}" method="post">
+              <button class="danger" type="submit">Remove</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No saved targets yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Recent Scan History</h2>
+  {% if records %}
+  <table>
+    <tr><th>Time</th><th>Source</th><th>Target</th><th>OS</th><th>Score</th><th>Level</th><th>PASS</th><th>FAIL</th><th>HIGH</th><th>View</th></tr>
+    {% for r in records %}
+    <tr>
+      <td>{{ r.timestamp }}</td>
+      <td>{{ r.source }}</td>
+      <td>{{ r.target_ip }}</td>
+      <td>{{ r.os_type }}</td>
+      <td><strong>{{ r.summary.risk_score }}/100</strong></td>
+      <td>{{ r.summary.risk_level }}</td>
+      <td>{{ r.summary.pass }}</td>
+      <td>{{ r.summary.fail }}</td>
+      <td>{{ r.summary.high }}</td>
+      <td><a class="link" href="{{ url_for('view_result', record_id=r.id) }}">Open</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p>No scan history available.</p>
+  {% endif %}
+</section>
+{% endblock %}

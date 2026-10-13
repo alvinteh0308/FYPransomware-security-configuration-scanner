@@ -1,0 +1,104 @@
+
+    <html>
+    <head>
+        <title>Windows Security Scan Report</title>
+        <style>
+            body { font-family: Arial; background:#f4f4f4; margin:30px; }
+            h1 { text-align:center; }
+            table { border-collapse: collapse; width:100%; background:white; }
+            th, td { border:1px solid #ccc; padding:10px; text-align:left; vertical-align:top; }
+            th { background:#333; color:white; }
+            pre { white-space:pre-wrap; margin:0; }
+            .PASS { background:#c8e6c9; }
+            .FAIL { background:#ffcdd2; }
+            .INFO { background:#fff9c4; }
+        </style>
+    </head>
+    <body>
+        <h1>Windows Security Scan Report</h1>
+        <h3>Target IP: 192.168.126.132</h3>
+
+        <table>
+            <tr>
+                <th>Target IP</th>
+                <th>OS</th>
+                <th>Check</th>
+                <th>Status</th>
+                <th>Risk</th>
+                <th>Details</th>
+                <th>Remediation</th>
+            </tr>
+            
+        <tr class="FAIL">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>Windows Firewall</td>
+            <td>FAIL</td>
+            <td>HIGH</td>
+            <td><pre>Firewall may be disabled.</pre></td>
+            <td>Enable Windows Firewall for all profiles.</td>
+        </tr>
+        
+        <tr class="FAIL">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>RDP Status</td>
+            <td>FAIL</td>
+            <td>HIGH</td>
+            <td><pre>RDP is enabled.</pre></td>
+            <td>Disable RDP if it is not required.</td>
+        </tr>
+        
+        <tr class="FAIL">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>Password Policy</td>
+            <td>FAIL</td>
+            <td>HIGH</td>
+            <td><pre>Force user logoff how long after time expires?:       Never
+Minimum password age (days):                          0
+Maximum password age (days):                          Unlimited
+Minimum password length:                              0
+Length of password history maintained:                None
+Lockout threshold:                                    10
+Lockout duration (minutes):                           10
+Lockout observation window (minutes):                 10
+Computer role:                                        SERVER
+The command completed successfully.</pre></td>
+            <td>Set minimum password length and stronger password policy.</td>
+        </tr>
+        
+        <tr class="PASS">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>Windows Defender</td>
+            <td>PASS</td>
+            <td>LOW</td>
+            <td><pre>Defender is enabled.</pre></td>
+            <td>Keep Microsoft Defender enabled and updated.</td>
+        </tr>
+        
+        <tr class="FAIL">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>Administrator Account</td>
+            <td>FAIL</td>
+            <td>HIGH</td>
+            <td><pre>Default Administrator account is enabled.</pre></td>
+            <td>Disable or rename the default Administrator account.</td>
+        </tr>
+        
+        <tr class="PASS">
+            <td>192.168.126.132</td>
+            <td>Windows</td>
+            <td>Guest Account</td>
+            <td>PASS</td>
+            <td>LOW</td>
+            <td><pre>Guest account is disabled.</pre></td>
+            <td>Guest account is disabled.</td>
+        </tr>
+        
+        </table>
+    </body>
+    </html>
+    
